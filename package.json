@@ -5,25 +5,28 @@
   "scripts": {
     "db:push": "bunx drizzle-kit push:sqlite",
     "db:studio": "bunx drizzle-kit studio",
-    "dev": "concurrently \"bun run --watch src/index.tsx\" \"bun run tw:dev\"",
-    "tw": "bunx tailwindcss -i ./src/styles.css -o ./tailwind-gen/styles.css",
-    "tw:dev": "bunx tailwindcss -i ./src/styles.css -o ./tailwind-gen/styles.css --watch"
+    "dev": "bun run --watch src/index.tsx",
+    "lint": "bunx oxlint@latest .",
+    "lint:check": "bunx biome check --apply-unsafe ./src",
+    "lint:write": "bunx biome format ./src --write"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.1.2",
     "@flydotio/dockerfile": "latest",
+    "@happy-dom/global-registrator": "^11.0.2",
     "bun-types": "latest",
     "concurrently": "^8.2.0",
     "drizzle-kit": "^0.19.6",
-    "tailwindcss": "^3.3.3",
     "typed-html": "^3.0.1"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@elysiajs/html": "^0.5.2",
+    "@elysiajs/html": "^0.6.4",
     "@libsql/client": "^0.3.0",
     "drizzle-orm": "^0.27.2",
-    "elysia": "^0.5.22"
+    "elysia": "^0.6.20",
+    "open-props": "^1.5.15"
   }
 }
