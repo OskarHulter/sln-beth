@@ -5,7 +5,8 @@
 	},
 	"formatter": {
 		"enabled": true,
-		"indentStyle": "space"
+		"indentStyle": "space",
+		"ignore": ["dist/**/*", "node_modules/**/*"]
 	},
 	"javascript": {
 		"formatter": {
@@ -19,6 +20,7 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true
-		}
+		},
+		"ignore": ["dist/**/*", "node_modules/**/*"]
 	}
 }

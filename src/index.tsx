@@ -2,10 +2,10 @@ import { html } from '@elysiajs/html'
 import { eq } from 'drizzle-orm'
 import { Elysia, t } from 'elysia'
 import * as elements from 'typed-html'
-import { db } from './db'
-import { todos } from './db/schema'
 import { TodoItem } from './components/todoItem'
 import { TodoList } from './components/todoList'
+import { db } from './db'
+import { todos } from './db/schema'
 
 export const BaseHtml = ({ children }: elements.Children) => `
 <!DOCTYPE html>

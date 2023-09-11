@@ -5,7 +5,7 @@ import { createInsertSchema, createSelectSchema } from 'drizzle-typebox'
 export const todos = sqliteTable('todos', {
   id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
   content: text('content').notNull(),
-  completed: integer('completed', { mode: 'boolean' }).notNull().default(false)
+  completed: integer('completed', { mode: 'boolean' }).notNull().default(false),
 })
 
 export type Todo = InferModel<typeof todos>
