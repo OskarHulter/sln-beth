@@ -1,5 +1,5 @@
 import { Elysia } from 'elysia'
-import { Todo } from '../db/schema'
+import { type Todo } from '../db/schema'
 import { TodoItem } from './todoItem'
 import { TodoForm } from './todoForm'
 

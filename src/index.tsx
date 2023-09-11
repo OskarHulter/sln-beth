@@ -7,7 +7,6 @@ import { todos } from './db/schema'
 import { TodoItem } from './components/todoItem'
 import { TodoList } from './components/todoList'
 
-
 export const BaseHtml = ({ children }: elements.Children) => `
 <!DOCTYPE html>
 <html lang="en">
