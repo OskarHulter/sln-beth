@@ -6,6 +6,7 @@
     "db:push": "bunx drizzle-kit push:sqlite",
     "db:studio": "bunx drizzle-kit studio",
     "dev": "bun run --watch src/index.tsx",
+    "lint": "bun run lint:check && bun run lint:write",
     "lint:check": "bunx biome check --apply-unsafe ./src",
     "lint:write": "bunx biome format ./src --write"
   },
