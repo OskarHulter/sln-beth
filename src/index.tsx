@@ -23,7 +23,9 @@ export const BaseHtml = ({ children }: elements.Children) => `
 ${children}
 `
 
-const app = new Elysia()
+const app = new Elysia({
+  strictPath: false
+})
   .use(html())
   .get('/', ({ html }) =>
     html(

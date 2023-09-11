@@ -1,2 +1,4 @@
+logLevel = "debug"
+jsx = "react"
 [test]
 preload = "./happydom.ts"

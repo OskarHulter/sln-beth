@@ -23,7 +23,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@elysiajs/html": "^0.6.4",
+    "@elysiajs/html": "^0.6.5",
     "@libsql/client": "^0.3.0",
     "drizzle-orm": "^0.27.2",
     "drizzle-typebox": "^0.1.1",
