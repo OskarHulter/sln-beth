@@ -6,6 +6,7 @@ import { TodoItem } from './components/todoItem'
 import { TodoList } from './components/todoList'
 import { db } from './db'
 import { todos } from './db/schema'
+import { OpenPropsExample } from './components/openPropsExample'
 
 export const BaseHtml = ({ children }: elements.Children) => `
 <!DOCTYPE html>
@@ -19,7 +20,7 @@ export const BaseHtml = ({ children }: elements.Children) => `
   <script src="dist/hyperscript.min.js"></script>
   <link href="/styles.css" rel="stylesheet">
 </head>
-
+${OpenPropsExample}
 ${children}
 `
 
