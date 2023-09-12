@@ -2,39 +2,44 @@ import { html } from '@elysiajs/html'
 import { eq } from 'drizzle-orm'
 import { Elysia, t } from 'elysia'
 import * as elements from 'typed-html'
+import { OpenPropsExample } from './components/openPropsExample'
 import { TodoItem } from './components/todoItem'
 import { TodoList } from './components/todoList'
 import { db } from './db'
 import { todos } from './db/schema'
-import { OpenPropsExample } from './components/openPropsExample'
 
 export const BaseHtml = ({ children }: elements.Children) => `
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="description" content="🙂">
+  <meta name="color-scheme" content="dark light">
   <title>THE BETH STACK</title>
-  <script src="dist/htmx.min.js"></script>
-  <script src="dist/hyperscript.min.js"></script>
+  <script src="/hmtx.js"></script>
+  <script src="/hyperscript.js"></script>
   <link href="/styles.css" rel="stylesheet">
 </head>
-${OpenPropsExample}
 ${children}
 `
 
 const app = new Elysia({
-  strictPath: false
+  strictPath: false,
 })
   .use(html())
   .get('/', ({ html }) =>
     html(
       <BaseHtml>
-        <body hx-get='/todos' hx-swap='innerHTML' hx-trigger='load' />
+        <body hx-get='/design-system' hx-swap='innerHTML' hx-trigger='load' />
       </BaseHtml>
     )
   )
+  .get('/design-system', async () => {
+    return <OpenPropsExample />
+  })
   .get('/todos', async () => {
     const data = await db.select().from(todos).all()
     return <TodoList todos={data} />
@@ -84,7 +89,9 @@ const app = new Elysia({
       }),
     }
   )
-  .get('/styles.css', () => Bun.file('./open-props/styles.css'))
+  .get('/styles.css', () => Bun.file('./style-gen/styles.css'))
+  .get('/htmx.js', () => Bun.file('./dist/hyperscript.min.js'))
+  .get('/hyperscript.js', () => Bun.file('./dist/hyperscript.min.js'))
   .listen(3000)
 
 console.log(

@@ -5,7 +5,9 @@
   "scripts": {
     "db:push": "bunx drizzle-kit push:sqlite",
     "db:studio": "bunx drizzle-kit studio",
-    "dev": "bun run --watch src/index.tsx",
+    "dev": "concurrently \"bun run --watch src/index.tsx\" \"bun run op:dev\"",
+    "op": "bunx postcss ./src/styles.css -o ./style-gen/styles.css",
+    "op:dev": "bunx postcss ./src/styles.css -o ./style-gen/styles.css --watch",
     "lint": "bun run lint:check && bun run lint:write",
     "lint:check": "bunx biome check --apply-unsafe ./src",
     "lint:write": "bunx biome format ./src --write"
@@ -17,6 +19,9 @@
     "bun-types": "latest",
     "concurrently": "^8.2.0",
     "drizzle-kit": "^0.19.6",
+    "postcss": "^8.4.29",
+    "postcss-cli": "^10.1.0",
+    "postcss-jit-props": "^1.0.13",
     "typed-html": "^3.0.1"
   },
   "peerDependencies": {
@@ -28,6 +33,7 @@
     "drizzle-orm": "^0.27.2",
     "drizzle-typebox": "^0.1.1",
     "elysia": "^0.6.20",
+    "hyperscript": "^2.0.2",
     "open-props": "^1.5.15"
   }
 }

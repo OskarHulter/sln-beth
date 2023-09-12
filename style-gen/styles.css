@@ -1,3 +1,23 @@
+:root{
+   --gradient-18: 
+    linear-gradient(0deg,   hsla(0   100% 50% / 80%), hsla(0   100% 50% / 0) 75%),
+    linear-gradient(60deg,  hsla(60  100% 50% / 80%), hsla(60  100% 50% / 0) 75%),
+    linear-gradient(120deg, hsla(120 100% 50% / 80%), hsla(120 100% 50% / 0) 75%),
+    linear-gradient(180deg, hsla(180 100% 50% / 80%), hsla(180 100% 50% / 0) 75%),
+    linear-gradient(240deg, hsla(240 100% 50% / 80%), hsla(240 100% 50% / 0) 75%),
+    linear-gradient(300deg, hsla(300 100% 50% / 80%), hsla(300 100% 50% / 0) 75%)
+  ;
+   --pink-0: #fff0f6;
+   --gray-8: #343a40;
+   --violet-0: #f3f0ff;
+   --pink-5: #f06595;
+   --size-5: 1.5rem;
+   --size-4: 1.25rem;
+   --animation-scale-down: scale-down .5s var(--ease-3);
+   --animation-fade-out: fade-out .5s var(--ease-3);
+   --ease-squish-5: cubic-bezier(.5, -.9, .1, 1.5);
+   --ease-3: cubic-bezier(.25, 0, .3, 1);
+}
 /* Welcome 🎉 */
 /* Use Open-Props from NPM or CDN */
 /* @import 'open-props/style'; */
@@ -60,4 +80,12 @@
    animation-timing-function: var(--ease-squish-5);
    animation-duration: 1s;
  }
+ 
+ @keyframes scale-down {
+  to { transform: scale(.75) }
+}
+ 
+ @keyframes fade-out {
+  to { opacity: 0 }
+}
  
